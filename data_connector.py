@@ -9,10 +9,10 @@ db = client.test
 
 # Get environment variables
 password = os.getenv('SWISSBEACH_DB_PASSWORD')
-database = 'vcor'
+database = os.getenv('SWISSBEACH_DB')
 
 connection_string = \
-    "mongodb+srv://swissbeach_admin:{}@cluster0.5ozes.mongodb.net/{}?retryWrites=true&w=majority".format(
+        os.getenv('MONGODB_URI').format(
         password, database)
 
 client = pymongo.MongoClient(connection_string)
